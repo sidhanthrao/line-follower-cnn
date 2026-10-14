@@ -4,12 +4,12 @@ A camera-based line follower robot built on a Raspberry Pi 4B. An OpenCV
 pipeline steers the robot for now, and a small CNN (trained in PyTorch, run with ONNX Runtime)
 is being developed as an alternative.
 
-![Robot photo](docs/images/robot-top.jpg)
+<img width="380" height="396" alt="robot-top" src="https://github.com/user-attachments/assets/d9466ba0-45fa-4605-816e-bd122b82c0f8" />
 
 ## Status
 - [x] Hardware built (RPi 4B, 2x BTS7960, RPi Camera, 3S 18650 pack)
 - [x] Classical vision pipeline (colour threshold -> contour -> centroid -> 3-zone steering)
-- [ ] CNN dataset collection (in progress)
+- [ ] CNN dataset collection (not started)
 - [ ] CNN training and on-robot testing (code written, untested)
 
 ## Hardware
@@ -34,7 +34,7 @@ is being developed as an alternative.
 
 BTS7960 logic VCC is tied to the Pi 3.3 V pin. **Pi and motor supply must share a common ground.**
 
-![Wiring photo](docs/images/wiring.jpg)
+<img width="1169" height="1912" alt="wiring" src="https://github.com/user-attachments/assets/68db08e4-c698-481b-a7c3-b5f142f337d6" />
 
 ## How it works
 1. Camera frame is captured with picamera2.
@@ -48,15 +48,15 @@ model.py          CNN definition
 train.py          training + ONNX export (needs dataset/{left,right,straight}/)
 infer_pi.py       on-robot inference + motor control
 requirements.txt
-docs/images/      photos and diagrams
 ```
 
 ## Running
 ```bash
 pip install -r requirements.txt
-python train.py        # on a laptop, once you have a dataset
+python train.py        # on the laptop with the dataset
 python infer_pi.py     # on the Pi, with lfr.onnx present
 ```
+
 
 ## Next steps
 - Collect a labelled dataset, using the classical pipeline as an auto-labeller
