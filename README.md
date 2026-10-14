@@ -41,14 +41,7 @@ BTS7960 logic VCC is tied to the Pi 3.3 V pin. **Pi and motor supply must share 
 2. **Classical mode:** BGR threshold -> largest contour -> centroid x -> left / straight / right.
 3. **CNN mode:** frame resized to 64x64, normalised, classified by `LFRNet` (`model.py`),
    exported to ONNX and run on the Pi (`infer_pi.py`).
-
-## Repo layout
-```
-model.py          CNN definition
-train.py          training + ONNX export (needs dataset/{left,right,straight}/)
-infer_pi.py       on-robot inference + motor control
-requirements.txt
-```
+   
 
 ## Running
 ```bash
